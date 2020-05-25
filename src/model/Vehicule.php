@@ -155,7 +155,7 @@ class Vehicule extends AbstractModel
 
         $pdo = self::getPdo();
 
-        $query = "UPDATE vehicule SET marque = :marque, modele = :modele, couleur = :couleur, immatriculation = :immatriculation WHERE id = :id";
+        $query = "UPDATE vehicule SET marque = :marque, modele = :modele, couleur = :couleur, immatriculation = :immatriculation WHERE id_vehicule = :id";
 
         $response = $pdo->prepare($query);
         $response->execute([

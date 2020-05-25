@@ -7,7 +7,7 @@
         <div class="row">
             <div class="px-4">
                 <label for="">Modifier un véhicule</label>
-                <form action="{{ base_path ~ '/vehicule' }}" method="POST">
+                <form action="{{ base_path ~ '/vehicule/' ~ vehicule.id ~ '/edit' }}" method="POST">
 
                     <label id="marque" class="form-text text-muted">Marque</label>
                     <input type="text" class="form-control" name="marque" aria-describedby="marque" value="{{ vehicule.marque }}" required>

@@ -68,3 +68,44 @@ ADD CONSTRAINT `foreign_key_vehicule`
   REFERENCES `vtc`.`vehicule` (`id_vehicule`)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
+
+#affichage divers queries
+
+#     Afficher le nombre de conducteur.
+SELECT COUNT(*) FROM conducteur;
+
+#    Afficher le nombre de vehicule.
+SELECT COUNT(*) FROM vehicule;
+
+# Afficher le nombre d’association.
+SELECT COUNT(*) FROM association_vehicule_conducteur;
+
+#    Afficher les vehicules n’ayant pas de conducteur
+SELECT * FROM vehicule
+LEFT JOIN association_vehicule_conducteur ON vehicule.id_vehicule = association_vehicule_conducteur.id_vehicule
+WHERE association_vehicule_conducteur.id_vehicule IS NULL;
+
+#    Afficher les conducteurs n’ayant pas de vehicule
+SELECT * FROM conducteur
+LEFT JOIN association_vehicule_conducteur ON conducteur.id_conducteur = association_vehicule_conducteur.id_conducteur
+WHERE association_vehicule_conducteur.id_conducteur IS NULL;
+
+#    Afficher les vehicules conduits par « Philippe Pandre »
+SELECT * FROM vehicule
+INNER JOIN association_vehicule_conducteur ON vehicule.id_vehicule = association_vehicule_conducteur.id_vehicule
+WHERE association_vehicule_conducteur.id_conducteur = 3 ;
+
+#    Afficher tous les conducteurs (meme ceux qui n'ont pas de correspondance) ainsi que les vehicules
+SELECT * FROM conducteur, vehicule
+LEFT JOIN association_vehicule_conducteur
+ON vehicule.id_vehicule = association_vehicule_conducteur.id_vehicule;
+
+#  Afficher les conducteurs et tous les vehicules (meme ceux qui n'ont pas de correspondance)
+SELECT * FROM vehicule, conducteur
+LEFT JOIN association_vehicule_conducteur
+ON conducteur.id_conducteur = association_vehicule_conducteur.id_conducteur;
+
+#  Afficher tous les conducteurs et tous les vehicules, peut importe les correspondances.
+SELECT * FROM conducteur, vehicule;
+
+

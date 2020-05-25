@@ -6,7 +6,7 @@ $router = new Router();
 $router->setNamespace('App\Controller');
 
 // Accueil route
-$router->get('/', 'AppController@index');
+$router->get('/', 'ConducteurController@create');
 
 // Vehicule route
 
@@ -26,6 +26,11 @@ $router->post('/conducteur', 'ConducteurController@new');
 
 $router->get('/association_vehicule_conducteur', 'AssociationVehiculeConducteurController@create');
 $router->post('/association_vehicule_conducteur', 'AssociationVehiculeConducteurController@new');
+
+// Queries route
+
+$router->get('/queries', 'QueriesController@index');
+
 
 
 $router->run();

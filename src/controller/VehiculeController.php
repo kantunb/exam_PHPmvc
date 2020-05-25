@@ -38,12 +38,18 @@ class VehiculeController extends AbstractController
 
     public static function update(int $id)
     {
+        var_dump($_POST);
         $vehicule = new Vehicule;
         $vehicule->setMarque($_POST['marque']);
         $vehicule->setModele($_POST['modele']);
         $vehicule->setCouleur($_POST['couleur']);
         $vehicule->setImmatriculation($_POST['immatriculation']);
         $vehicule->update($id);
+
+        header("Status: 301 Moved Permanently", false, 301);
+        header("Location: " . BASE_PATH . "vehicule");
+        exit();
+
     }
 
     public static function delete(int $id) {
@@ -53,6 +59,8 @@ class VehiculeController extends AbstractController
 
         Vehicule::deleteOne($id);
 
-        self::create();
+        header("Status: 301 Moved Permanently", false, 301);
+        header("Location: " . BASE_PATH . "vehicule");
+        exit();
     }
 }
