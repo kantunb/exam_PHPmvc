@@ -17,7 +17,7 @@ class Vehicule extends AbstractModel {
     }
 
     public function setId(int $id_vehicule) : self {
-        $this->id = $id_vehicule;
+        $this->id_vehicule = $id_vehicule;
         return $this;
     }
 

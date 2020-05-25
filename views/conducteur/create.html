@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="form-group px-4">
+                <label for="">Ajouter un conducteur</label>
+                <form action="{{ base_path ~ '/conducteur' }}" method="POST">
+
+                    <label id="nom" class="form-text text-muted">Nom</label>
+                    <input type="text" class="form-control" name="nom" aria-describedby="nom" value="" required>
+                    
+                    <label id="prenom" class="form-text text-muted">Prénom</label>
+                    <input type="text" class="form-control" name="prenom" aria-describedby="prénom" required>
+                                        
+                    <input class="btn btn-primary mt-4" type="submit" value="Créer un conducteur">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>{{ conducteur.prenom }} {{ conducteur.nom }} a été correctement ajouté(e) !</h1>
+            <a href="{{ base_path ~ '/vehicule' }}" class="btn btn-primary my-2">retour à la liste des véhicules</a>
+        </p>
+    </div>
+</section>
+
+
+{% endblock %}
