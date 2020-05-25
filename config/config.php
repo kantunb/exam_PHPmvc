@@ -3,14 +3,14 @@
 /**
  * Configuration du projet
  */
-const BASE_PATH = "http://localhost:8888/lab/POO/wf3-490-mvc/";
+const BASE_PATH = "http://localhost:8888/wf3mvc-base-project-master/";
 
 /**
  * Configuration de la base de données
  */
-const DB_NAME = "nom_de_la_bdd";
+const DB_NAME = "vtc";
 const DB_HOST = "localhost";
-const DB_PORT = "3306";
+const DB_PORT = "8889";
 const DB_USERNAME = 'root';
 const DB_PASSWORD = 'root';
 

@@ -2,10 +2,72 @@
 <html lang="fr">
 
 <head>
-    <title></title>
+    <title>Examen WF3 : MVC</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ assets ~ '/css/styles.css' }}">
+
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+
+    <header>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="{{ base_path ~ '/../' }}" class="navbar-brand d-flex align-items-center">
+                    <strong>Accueil</strong>
+                </a>
+                <a href="{{ base_path ~ '/conducteur/' }}" class="navbar-brand d-flex align-items-center">
+                    <strong>Conducteur</strong>
+                </a>
+                <a href="{{ base_path ~ '/vehicule/' }}" class="navbar-brand d-flex align-items-center">
+                    <strong>Véhicules</strong>
+                </a>
+                <a href="{{ base_path ~ '/association_vehicule_conducteur/' }}" class="navbar-brand d-flex align-items-center">
+                    <strong>Association Conducteurs & Vehicules</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+
+                    {% block content %}{% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Examen WF3</p>
+            <p>Sujet : MVC</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
 </body>
+
 </html>

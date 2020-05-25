@@ -5,10 +5,14 @@ use Bramus\Router\Router;
 $router = new Router();
 $router->setNamespace('App\Controller');
 
-/**
- * Insérez vos routes ici
- */
+// Accueil route
+$router->get('/', 'AppController@index');
 
+// Vehicule route
+
+$router->get('/vehicule', 'VehiculeController@index');
+$router->get('/vehicule/(\d+)', 'VehiculeController@create');
+$router->post('/vehicule/create', 'VehiculeController@new');
 
 $router->run();
 
