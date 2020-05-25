@@ -13,21 +13,40 @@ class Vehicule extends AbstractModel
     private $couleur;
     private $immatriculation;
 
+    /**
+     * 
+     * @return int
+     */
     public function getId(): int
     {
         return $this->idVehicule;
     }
 
+    /**
+     *
+     * @param int $idVehicule
+     * @return self
+     */
     public function setId(int $idVehicule): self
     {
         $this->idVehicule = $idVehicule;
         return $this;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function getMarque(): string
     {
         return $this->marque;
     }
+
+    /**
+     *
+     * @param string $marque
+     * @return self
+     */
 
     public function setMarque(string $marque): self
     {
@@ -35,33 +54,60 @@ class Vehicule extends AbstractModel
         return $this;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function getModele(): string
     {
         return $this->modele;
     }
 
+    /**
+     *
+     * @param string $modele
+     * @return self
+     */
     public function setModele(string $modele): self
     {
         $this->modele = $modele;
         return $this;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function getCouleur(): string
     {
         return $this->couleur;
     }
 
+    /**
+     *
+     * @param string $couleur
+     * @return self
+     */
     public function setCouleur(string $couleur): self
     {
         $this->couleur = $couleur;
         return $this;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function getImmatriculation(): string
     {
         return $this->immatriculation;
     }
 
+    /**
+     *
+     * @param string $immatriculation
+     * @return self
+     */
     public function setImmatriculation(string $immatriculation): self
     {
         $this->immatriculation = $immatriculation;
@@ -105,36 +151,37 @@ class Vehicule extends AbstractModel
         return $dataAsObjets;
     }
 
-    public static function findOne($id){
+    public static function findOne($id)
+    {
 
         $bdd = self::getPdo();
 
         $query = "SELECT * FROM vehicule WHERE (id_vehicule = :id_vehicule)";
-        
+
         $response = $bdd->prepare($query);
         $response->execute([
             'id_vehicule' => $id
         ]);
 
         $data = $response->fetch();
-        
-        $dataAsObject = self::toObject($data);
-        
-        return $dataAsObject;
 
+        $dataAsObject = self::toObject($data);
+
+        return $dataAsObject;
     }
 
-    public static function deleteOne($id){
+    public static function deleteOne($id)
+    {
 
         $pdo = self::getPdo();
 
         $query = "DELETE FROM vehicule WHERE (id_vehicule = :id_vehicule)";
-        
+
         $response = $pdo->prepare($query);
         $response->execute([
             'id_vehicule' => $id
         ]);
-        
+
         return true;
     }
 
@@ -151,7 +198,8 @@ class Vehicule extends AbstractModel
         return $vehicule;
     }
 
-    public function update($id){
+    public function update($id)
+    {
 
         $pdo = self::getPdo();
 
@@ -167,7 +215,5 @@ class Vehicule extends AbstractModel
         ]);
 
         return true;
-
     }
-
 }
