@@ -45,4 +45,14 @@ class VehiculeController extends AbstractController
         $vehicule->setImmatriculation($_POST['immatriculation']);
         $vehicule->update($id);
     }
+
+    public static function delete(int $id) {
+        $vehicule = Vehicule::findOne($id);
+
+        // TO DO : message de confirmation
+
+        Vehicule::deleteOne($id);
+
+        self::create();
+    }
 }

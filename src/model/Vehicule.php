@@ -124,6 +124,21 @@ class Vehicule extends AbstractModel
 
     }
 
+    public static function deleteOne($id){
+
+        $pdo = self::getPdo();
+
+        $query = "DELETE FROM vehicule WHERE (id_vehicule = :id_vehicule)";
+        
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'id_vehicule' => $id
+        ]);
+        
+        return true;
+    }
+
+
     public static function toObject($array)
     {
         $vehicule = new Vehicule;

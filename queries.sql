@@ -53,3 +53,18 @@ INSERT INTO `vtc`.`association_vehicule_conducteur` (`id_vehicule`, `id_conducte
 INSERT INTO `vtc`.`association_vehicule_conducteur` (`id_vehicule`, `id_conducteur`) VALUES ('503', '3');
 INSERT INTO `vtc`.`association_vehicule_conducteur` (`id_vehicule`, `id_conducteur`) VALUES ('504', '4');
 INSERT INTO `vtc`.`association_vehicule_conducteur` (`id_vehicule`, `id_conducteur`) VALUES ('501', '3');
+
+ALTER TABLE `vtc`.`association_vehicule_conducteur` 
+DROP FOREIGN KEY `foreign_key_conducteur`,
+DROP FOREIGN KEY `foreign_key_vehicule`;
+ALTER TABLE `vtc`.`association_vehicule_conducteur` 
+ADD CONSTRAINT `foreign_key_conducteur`
+  FOREIGN KEY (`id_conducteur`)
+  REFERENCES `vtc`.`conducteur` (`id_conducteur`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `foreign_key_vehicule`
+  FOREIGN KEY (`id_vehicule`)
+  REFERENCES `vtc`.`vehicule` (`id_vehicule`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
