@@ -7,15 +7,11 @@ use App\Model\Vehicule;
 
 class VehiculeController extends AbstractController {
     
-    public static function index() { 
-        echo 'Page index';
-        
-    }
-    
     public static function create() { 
+
+        $vehicules = Vehicule::findAll();
         
-        echo self::getTwig()->render('vehicule/create.html');
-        
+        echo self::getTwig()->render('vehicule/create.html', ['vehicules' => $vehicules]);        
     }
     
     public static function new() { 

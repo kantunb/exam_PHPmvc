@@ -19,18 +19,20 @@
     <header>
         </div>
         <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
+            <div class="container d-flex justify-content-start">
+                <!-- Suppression du lien vers l'acceuil
                 <a href="{{ base_path ~ '/../' }}" class="navbar-brand d-flex align-items-center">
                     <strong>Accueil</strong>
-                </a>
+                </a>-->
                 <a href="{{ base_path ~ '/conducteur/' }}" class="navbar-brand d-flex align-items-center">
                     <strong>Conducteur</strong>
                 </a>
                 <a href="{{ base_path ~ '/vehicule/' }}" class="navbar-brand d-flex align-items-center">
-                    <strong>Véhicules</strong>
+                    <strong>Véhicule</strong>
                 </a>
-                <a href="{{ base_path ~ '/association_vehicule_conducteur/' }}" class="navbar-brand d-flex align-items-center">
-                    <strong>Association Conducteurs & Vehicules</strong>
+                <a href="{{ base_path ~ '/association_vehicule_conducteur/' }}"
+                    class="navbar-brand d-flex align-items-center">
+                    <strong>Association</strong>
                 </a>
             </div>
         </div>
@@ -41,7 +43,17 @@
             <div class="row">
                 <div class="col">
 
-                    {% block content %}{% endblock %}
+                    {% block array %}{% endblock %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+
+                    {% block form %}{% endblock %}
 
                 </div>
             </div>

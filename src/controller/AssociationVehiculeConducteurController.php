@@ -14,11 +14,12 @@ class AssociationVehiculeConducteurController extends AbstractController {
     }
     
     public static function create() {
+        $listAssociation = AssociationVehiculeConducteur::findAll();
         $listConducteurs = Conducteur::findAll();
-
         $listVehicules = Vehicule::findAll();        
         
         echo self::getTwig()->render('associationVehiculeConducteur/create.html', [
+            'associations' => $listVehicules,
             'conducteurs' => $listConducteurs,
             'vehicules' => $listVehicules
             ]);     

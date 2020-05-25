@@ -12,9 +12,11 @@ class ConducteurController extends AbstractController {
         
     }
     
-    public static function create() { 
+    public static function create() {
+
+        $conducteurs = Conducteur::findAll();
         
-        echo self::getTwig()->render('conducteur/create.html');
+        echo self::getTwig()->render('conducteur/create.html', ['conducteurs' => $conducteurs]);
         
     }
     

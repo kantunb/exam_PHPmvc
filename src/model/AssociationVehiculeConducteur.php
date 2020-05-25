@@ -37,6 +37,37 @@ class AssociationVehiculeConducteur extends AbstractModel {
         return $this;
     }
 
+    public static function findAll()
+    {
+        $pdo = self::getPdo();
+
+        $query = "SELECT * FROM association_vehicule_conducteur";
+
+        $response = $pdo->prepare($query);
+        $response->execute();
+
+        $data = $response->fetchAll();
+
+        $dataAsObjets = [];
+
+        foreach ($data as $d) {
+            $dataAsObjets[] = self::toObject($d);
+        }
+
+        return $dataAsObjets;
+    }
+
+    public static function toObject($array)
+    {
+        $association = new AssociationVehiculeConducteur;
+        $association->setIdAssociatif($array['id_vehicule']);
+        $association->setIdVehicule($array['id_vehicule']);
+        $association->setIdConducteur($array['id_conducteur']);
+
+        return $association;
+    }
+
+
     public function addOne() {
         $pdo = self::getPdo();
 
