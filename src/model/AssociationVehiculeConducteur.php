@@ -6,50 +6,50 @@ use PDO;
 
 class AssociationVehiculeConducteur extends AbstractModel {
 
-    private $id_association;
-    private $id_vehicule;
-    private $id_conducteur;
+    private $idAssociation;
+    private $idVehicule;
+    private $idConducteur;
 
     public function getIdAssociatif() : int {
-        return $this->id_association;
+        return $this->idAssociation;
     }
 
-    public function setIdAssociatif(int $id_association) : self {
-        $this->id_association = $id_association;
+    public function setIdAssociatif(int $idAssociation) : self {
+        $this->idAssociation = $idAssociation;
         return $this;
     }
 
     public function getIdVehicule() : int {
-        return $this->id_vehicule;
+        return $this->idVehicule;
     }
 
-    public function setIdVehicule(int $id_vehicule) : self {
-        $this->id_vehicule = $id_vehicule;
+    public function setIdVehicule(int $idVehicule) : self {
+        $this->idVehicule = $idVehicule;
         return $this;
     }
 
     public function getIdConducteur() : int {
-        return $this->id_conducteur;
+        return $this->idConducteur;
     }
 
-    public function setIdConducteur(int $id_conducteur) : self {
-        $this->id_conducteur = $id_conducteur;
+    public function setIdConducteur(int $idConducteur) : self {
+        $this->idConducteur = $idConducteur;
         return $this;
     }
 
-    // public function addOne() {
-    //     $pdo = self::getPdo();
+    public function addOne() {
+        $pdo = self::getPdo();
 
-    //     $query = "INSERT INTO conducteur (prenom, nom) VALUES (:prenom, :nom)";
+        $query = "INSERT INTO association_vehicule_conducteur (id_vehicule, id_conducteur) VALUES (:id_vehicule, :id_conducteur)";
         
-    //     $response = $pdo->prepare($query);
-    //     $response->execute([
-    //         'prenom' => $this->getPrenom(),
-    //         'nom' => $this->getNom(),
-    //     ]);
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'id_vehicule' => $this->getIdVehicule(),
+            'id_conducteur' => $this->getIdConducteur(),
+        ]);
 
-    //     return true;
-    // }
+        return true;
+    }
 
 
 

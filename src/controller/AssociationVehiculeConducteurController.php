@@ -21,17 +21,17 @@ class AssociationVehiculeConducteurController extends AbstractController {
         echo self::getTwig()->render('associationVehiculeConducteur/create.html', [
             'conducteurs' => $listConducteurs,
             'vehicules' => $listVehicules
-            ]);
-        
+            ]);     
     }
     
     public static function new() { 
+
         $associationVehiculeConducteur = new AssociationVehiculeConducteur;
         $associationVehiculeConducteur->setIdConducteur($_POST['id_conducteur']);
         $associationVehiculeConducteur->setIdVehicule($_POST['id_vehicule']);
-        // $vehicule->addOne();
+        $associationVehiculeConducteur->addOne();
 
-        echo self::getTwig()->render('vehicule/new.html', ['vehicule' => $associationVehiculeConducteur]);
+        echo self::getTwig()->render('associationVehiculeConducteur/new.html', ['vehicule' => $associationVehiculeConducteur]);
 
     }
 

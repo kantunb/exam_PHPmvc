@@ -6,16 +6,16 @@ use PDO;
 
 class Conducteur extends AbstractModel {
 
-    private $id_conducteur;
+    private $idConducteur;
     private $prenom;
     private $nom;
 
     public function getId() : int {
-        return $this->id_conducteur;
+        return $this->idConducteur;
     }
 
-    public function setId(int $id_conducteur) : self {
-        $this->id_conducteur = $id_conducteur;
+    public function setId(int $idConducteur) : self {
+        $this->idConducteur = $idConducteur;
         return $this;
     }
 

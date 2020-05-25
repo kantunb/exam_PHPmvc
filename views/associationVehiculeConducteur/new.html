@@ -4,12 +4,8 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>Votre véhicule <strong>{{ vehicule.modele }}</strong> a été correctement ajouté !</h1>
-        <p> Marque : {{ vehicule.marque }}<br>
-            Couleur : {{ vehicule.couleur }}<br>
-            Immatriculation : {{ vehicule.immatriculation }}</p>
-        <p>
-            <a href="{{ base_path ~ '/vehicule' }}" class="btn btn-primary my-2">retour à la liste des véhicules</a>
+        <h1>Association réussie</h1>
+            <a href="{{ base_path ~ '/association_vehicule_conducteur' }}" class="btn btn-primary my-2">retour à la liste des associations</a>
         </p>
     </div>
 </section>

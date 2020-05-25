@@ -7,7 +7,7 @@ use PDO;
 class Vehicule extends AbstractModel
 {
 
-    private $id_vehicule;
+    private $idVehicule;
     private $marque;
     private $modele;
     private $couleur;
@@ -15,12 +15,12 @@ class Vehicule extends AbstractModel
 
     public function getId(): int
     {
-        return $this->id_vehicule;
+        return $this->idVehicule;
     }
 
-    public function setId(int $id_vehicule): self
+    public function setId(int $idVehicule): self
     {
-        $this->id_vehicule = $id_vehicule;
+        $this->idVehicule = $idVehicule;
         return $this;
     }
 
