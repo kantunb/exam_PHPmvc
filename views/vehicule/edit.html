@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block form %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="px-4">
+                <label for="">Modifier un véhicule</label>
+                <form action="{{ base_path ~ '/vehicule' }}" method="POST">
+
+                    <label id="marque" class="form-text text-muted">Marque</label>
+                    <input type="text" class="form-control" name="marque" aria-describedby="marque" value="{{ vehicule.marque }}" required>
+
+                    <label id="modele" class="form-text text-muted">Modèle</label>
+                    <input type="text" class="form-control" name="modele" aria-describedby="modèle" value="{{ vehicule.modele }}" required>
+
+                    <label id="couleur" class="form-text text-muted">Couleur</label>
+                    <input type="text" class="form-control" name="couleur" aria-describedby="couleur" value="{{ vehicule.couleur }}" required>
+
+                    <label id="immatriculation" class="form-text text-muted">Immatriculation</label>
+                    <input type="text" class="form-control" name="immatriculation" aria-describedby="immatriculation" value="{{ vehicule.immatriculation }}"
+                        required>
+
+                    <input class="btn btn-primary mt-4" type="submit" value="Modifier le véhicule">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -105,6 +105,25 @@ class Vehicule extends AbstractModel
         return $dataAsObjets;
     }
 
+    public static function findOne($id){
+
+        $bdd = self::getPdo();
+
+        $query = "SELECT * FROM vehicule WHERE (id_vehicule = :id_vehicule)";
+        
+        $response = $bdd->prepare($query);
+        $response->execute([
+            'id_vehicule' => $id
+        ]);
+
+        $data = $response->fetch();
+        
+        $dataAsObject = self::toObject($data);
+        
+        return $dataAsObject;
+
+    }
+
     public static function toObject($array)
     {
         $vehicule = new Vehicule;
@@ -116,4 +135,24 @@ class Vehicule extends AbstractModel
 
         return $vehicule;
     }
+
+    public function update($id){
+
+        $pdo = self::getPdo();
+
+        $query = "UPDATE vehicule SET marque = :marque, modele = :modele, couleur = :couleur, immatriculation = :immatriculation WHERE id = :id";
+
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'marque' => $this->getMarque(),
+            'modele' => $this->getModele(),
+            'couleur' => $this->getCouleur(),
+            'immatriculation' => $this->getImmatriculation(),
+            'id' => $id
+        ]);
+
+        return true;
+
+    }
+
 }

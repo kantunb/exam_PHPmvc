@@ -12,6 +12,10 @@ $router->get('/', 'AppController@index');
 
 $router->get('/vehicule', 'VehiculeController@create');
 $router->post('/vehicule', 'VehiculeController@new');
+$router->get('/vehicule/(\d+)/edit', 'VehiculeController@edit');
+$router->post('/vehicule/(\d+)/edit', 'VehiculeController@update');
+$router->get('/vehicule/(\d+)/delete', 'VehiculeController@delete');
+
 
 // Conducteur route
 
