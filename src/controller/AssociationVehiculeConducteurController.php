@@ -8,10 +8,6 @@ use App\Model\Vehicule;
 
 class AssociationVehiculeConducteurController extends AbstractController {
     
-    public static function index() { 
-        echo 'Page index';
-        
-    }
     
     public static function create() {
         $listAssociation = AssociationVehiculeConducteur::findAll();

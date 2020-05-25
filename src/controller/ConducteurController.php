@@ -6,12 +6,7 @@ use App\Model\Conducteur;
 
 
 class ConducteurController extends AbstractController {
-    
-    public static function index() { 
-        echo 'Page index';
         
-    }
-    
     public static function create() {
 
         $conducteurs = Conducteur::findAll();
