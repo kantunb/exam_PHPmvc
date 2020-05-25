@@ -4,7 +4,8 @@ namespace App\Model;
 
 use PDO;
 
-class Vehicule extends AbstractModel {
+class Vehicule extends AbstractModel
+{
 
     private $id_vehicule;
     private $marque;
@@ -12,56 +13,67 @@ class Vehicule extends AbstractModel {
     private $couleur;
     private $immatriculation;
 
-    public function getId() : int {
+    public function getId(): int
+    {
         return $this->id_vehicule;
     }
 
-    public function setId(int $id_vehicule) : self {
+    public function setId(int $id_vehicule): self
+    {
         $this->id_vehicule = $id_vehicule;
         return $this;
     }
 
-    public function getMarque() : string {
+    public function getMarque(): string
+    {
         return $this->marque;
     }
 
-    public function setMarque(string $marque) : self {
+    public function setMarque(string $marque): self
+    {
         $this->marque = $marque;
         return $this;
     }
 
-    public function getModele() : string {
+    public function getModele(): string
+    {
         return $this->modele;
     }
 
-    public function setModele(string $modele) : self {
+    public function setModele(string $modele): self
+    {
         $this->modele = $modele;
         return $this;
     }
 
-    public function getCouleur() : string {
+    public function getCouleur(): string
+    {
         return $this->couleur;
     }
 
-    public function setCouleur(string $couleur) : self {
+    public function setCouleur(string $couleur): self
+    {
         $this->couleur = $couleur;
         return $this;
     }
 
-    public function getImmatriculation() : string {
+    public function getImmatriculation(): string
+    {
         return $this->immatriculation;
     }
 
-    public function setImmatriculation(string $immatriculation) : self {
+    public function setImmatriculation(string $immatriculation): self
+    {
         $this->immatriculation = $immatriculation;
         return $this;
     }
 
-    public function addOne() {
+    public function addOne()
+    {
         $pdo = self::getPdo();
 
         $query = "INSERT INTO vehicule (marque, modele, couleur, immatriculation) VALUES (:marque, :modele, :couleur, :immatriculation)";
-        
+
         $response = $pdo->prepare($query);
         $response->execute([
             'marque' => $this->getMarque(),
@@ -73,7 +85,35 @@ class Vehicule extends AbstractModel {
         return true;
     }
 
+    public static function findAll()
+    {
+        $pdo = self::getPdo();
 
+        $query = "SELECT * FROM vehicule";
 
+        $response = $pdo->prepare($query);
+        $response->execute();
 
+        $data = $response->fetchAll();
+
+        $dataAsObjets = [];
+
+        foreach ($data as $d) {
+            $dataAsObjets[] = self::toObject($d);
+        }
+
+        return $dataAsObjets;
+    }
+
+    public static function toObject($array)
+    {
+        $vehicule = new Vehicule;
+        $vehicule->setId($array['id_vehicule']);
+        $vehicule->setMarque($array['marque']);
+        $vehicule->setModele($array['modele']);
+        $vehicule->setCouleur($array['couleur']);
+        $vehicule->setImmatriculation($array['immatriculation']);
+
+        return $vehicule;
+    }
 }

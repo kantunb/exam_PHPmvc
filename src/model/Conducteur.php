@@ -51,6 +51,34 @@ class Conducteur extends AbstractModel {
         return true;
     }
 
+    public static function findAll() {
+        $pdo = self::getPdo();
+
+        $query = "SELECT * FROM conducteur";
+
+        $response = $pdo->prepare($query);
+        $response->execute();
+
+        $data = $response->fetchAll();
+
+        $dataAsObjets = [];
+
+        foreach($data as $d){
+            $dataAsObjets[] = self::toObject($d);
+        }
+
+        return $dataAsObjets;
+    }
+
+    public static function toObject($array){
+        $conducteur = new Conducteur;
+        $conducteur->setId($array['id_conducteur']);
+        $conducteur->setPrenom($array['prenom']);
+        $conducteur->setNom($array['nom']);
+
+        return $conducteur;
+    }
+
 
 
 

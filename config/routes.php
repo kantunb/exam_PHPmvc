@@ -20,6 +20,12 @@ $router->get('/conducteur', 'ConducteurController@index');
 $router->get('/conducteur/create', 'ConducteurController@create');
 $router->post('/conducteur', 'ConducteurController@new');
 
+// Associate table route
+
+$router->get('/association_vehicule_conducteur', 'AssociationVehiculeConducteurController@index');
+$router->get('/association_vehicule_conducteur/create', 'AssociationVehiculeConducteurController@create');
+$router->post('/association_vehicule_conducteur', 'AssociationVehiculeConducteurController@new');
+
 
 $router->run();
 

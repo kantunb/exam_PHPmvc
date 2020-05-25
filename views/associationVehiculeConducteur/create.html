@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="form-group px-4">
+                <label for="">Associer un véhicule et un conducteur</label>
+                <form action="{{ base_path ~ '/association_vehicule_conducteur' }}" method="POST">
+
+                    <label id="id_conducteur" for="id_conducteur">Conducteur</label>
+                    <select name="id_conducteur" id="id_conducteur" required>
+                        <option value="">Choisir le conducteur</option>
+
+                        {% for conducteur in conducteurs %}
+
+                        <option value="{{ conducteur.id_conducteur}}">{{ conducteur.prenom}} {{ conducteur.nom}}</option>
+
+                        {% endfor %}
+
+                    </select>
+
+                    <label id="id_vehicule" for="id_vehicule">Véhicules</label>
+                    <select name="id_vehicule" id="id_vehicule" required>
+                        <option value="">Choisir le véhicule</option>
+
+                        {% for vehicule in vehicules %}
+
+                        <option value="{{ vehicule.id_vehicule}}">{{ vehicule.marque }} / {{ vehicule.modele }} / {{ vehicule.immatriculation }}</option>
+                        
+                        {% endfor %}
+                        
+                    </select>
+
+                    <input class="btn btn-primary mt-4" type="submit" value="Créer un véhicule">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
