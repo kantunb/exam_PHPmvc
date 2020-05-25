@@ -11,8 +11,8 @@ $router->get('/', 'AppController@index');
 // Vehicule route
 
 $router->get('/vehicule', 'VehiculeController@index');
-$router->get('/vehicule/(\d+)', 'VehiculeController@create');
-$router->post('/vehicule/create', 'VehiculeController@new');
+$router->get('/vehicule/create', 'VehiculeController@create');
+$router->post('/vehicule', 'VehiculeController@new');
 
 $router->run();
 
