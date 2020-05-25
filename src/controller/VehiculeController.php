@@ -13,13 +13,17 @@ class VehiculeController extends AbstractController {
     }
     
     public static function create() { 
-        echo 'Page Create';
+        
+        echo self::getTwig()->render('vehicule/create.html');
         
     }
     
     public static function new() { 
-        echo 'Page New';
-        
+        $vehicule = new Vehicule;
+        $vehicule->setMarque($_POST['marque']);
+        $vehicule->setModele($_POST['modele']);
+        $vehicule->setCouleur($_POST['couleur']);
+        $vehicule->setImmatriculation($_POST['immatriculation']);
     }
 
 }
