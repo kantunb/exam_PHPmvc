@@ -57,6 +57,21 @@ class Vehicule extends AbstractModel {
         return $this;
     }
 
+    public function addOne() {
+        $pdo = self::getPdo();
+
+        $query = "INSERT INTO vehicule (marque, modele, couleur, immatriculation) VALUES (:marque, :modele, :couleur, :immatriculation)";
+        
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'marque' => $this->getMarque(),
+            'modele' => $this->getModele(),
+            'couleur' => $this->getCouleur(),
+            'immatriculation' => $this->getImmatriculation()
+        ]);
+
+        return true;
+    }
 
 
 

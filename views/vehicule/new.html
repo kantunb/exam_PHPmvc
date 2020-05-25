@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Votre véhicule <strong>{{ vehicule.modele }}</strong> a été correctement ajouté !</h1>
+        <p> Marque : {{ vehicule.marque }}<br>
+            Couleur : {{ vehicule.couleur }}<br>
+            Immatriculation : {{ vehicule.immatriculation }}</p>
+        <p>
+            <a href="{{ base_path ~ '/vehicule' }}" class="btn btn-primary my-2">retour à la liste des véhicules</a>
+        </p>
+    </div>
+</section>
+
+
+{% endblock %}

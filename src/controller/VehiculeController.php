@@ -24,6 +24,10 @@ class VehiculeController extends AbstractController {
         $vehicule->setModele($_POST['modele']);
         $vehicule->setCouleur($_POST['couleur']);
         $vehicule->setImmatriculation($_POST['immatriculation']);
+        $vehicule->addOne();
+
+        echo self::getTwig()->render('vehicule/new.html', ['vehicule' => $vehicule]);
+
     }
 
 }
